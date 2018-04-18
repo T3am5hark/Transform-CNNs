@@ -1,5 +1,7 @@
 # Utilities for working with Keras neural networks
-#import numpy as np
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 def describe_model(model):
     '''
