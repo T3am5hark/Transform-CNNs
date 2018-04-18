@@ -46,3 +46,28 @@ def hits_and_misses(predictions, targets):
     misses = [index for index,val in enumerate(missed) if val == True]
     hits   = [index for index,val in enumerate(missed) if val == False]
     return hits, misses
+
+def plot_training_data(model):
+    '''
+    plot_training_data(model)
+
+    description:
+        Plots the loss and accuracy metrics for train and test sets over the
+        epochs of training for the NNET.
+
+    inputs:
+        model - a Keras model that has been trained on a dataset
+    '''
+    n_epochs = len(model.history["loss"])
+    x_data = np.arange(0, n_epochs)
+    plt.figure(figsize=(8,5))
+    plt.plot(x_data, model.history["loss"], marker='.', label="train_loss")
+    plt.plot(x_data, model.history["val_loss"], marker='.', label="val_loss")
+    plt.plot(x_data, model.history["acc"], marker='.', label="train_acc")
+    plt.plot(x_data, model.history["val_acc"], marker='.', label="val_acc")
+    plt.title('Training Loss & Accuracy')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss/Accuracy')
+    plt.legend()
+    plt.grid()
+    plt.show()
