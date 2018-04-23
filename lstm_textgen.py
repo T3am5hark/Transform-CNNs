@@ -48,7 +48,7 @@ class TextToTrainingData(object):
     def str_to_int_sequence(self, a_string):
         return [self.char_to_int[char] for char in a_string]
 
-    def prompt_input(str, seq_length):
+    def prompt_input(self, str, seq_length):
         return str.rjust(seq_length)
 
     def generate_text(self, model, generated_seq_length, prompt):
@@ -65,7 +65,7 @@ class TextToTrainingData(object):
             result = self.int_to_char[char_index]
             output_text += result
             #seq_in = [self.int_to_char[value] for value in network_input]
-            network_input.append(index)
+            network_input.append(char_index)
             network_input = network_input[1:]
 
         return output_text
