@@ -1,7 +1,8 @@
 # Utilities for working with Keras neural networks
 import matplotlib.pyplot as plt
 import numpy as np
-
+from keras.layers.core import Lambda
+from keras import backend as K
 
 def describe_model(model):
     '''
@@ -73,3 +74,7 @@ def plot_training_data(model):
     plt.legend()
     plt.grid()
     plt.show()
+
+def PermaDropout(rate):
+
+    return Lambda(lambda x: K.dropout(x, level=rate))
