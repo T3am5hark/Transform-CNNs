@@ -19,14 +19,14 @@ def describe_model(model):
         print('Layer {0}: {1}'.format(idx, layer.__class__))
         print('    input={0}\n    output={1}'.format(layer.input_shape, layer.output_shape))
         if hasattr(layer, 'activation'):
-            activation = layer.activation
-            print('    act={0}'.format(activation))
+            print('    act={0}'.format(layer.activation))
         if hasattr(layer, 'rate'):
-            rate = layer.rate
-            print('    rate={0}'.format(rate))
+            print('    rate={0}'.format(layer.rate))
         if hasattr(layer, 'strides'):
             print('    strides={0}'.format(layer.strides))
 
+def set_dropout_rate(layer, rate):
+    layer.rate=rate
 
 def hits_and_misses(predictions, targets):
     '''
